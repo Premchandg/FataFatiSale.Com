@@ -732,55 +732,27 @@
         </div>
     </footer>
 
+    <script src="data.js"></script>
+
     <script>
-        // ==========================================
-        // 1. DYNAMIC ADVERTISEMENT CONTROLLER STORAGE
-        // ==========================================
-        const advertisementDatabase = [
-            { name: "Reliance Smart Plaza", area: "Barrackpore", img: "images/reliance.jpg", address: "Ghoshpara Road, Barrackpore", phone: "+91 90001 11101", coordinates: { lat: 22.7644, lng: 88.3768 } },
-            { name: "Senco Gold & Diamonds", area: "Naihati", img: "images/senco.jpg", address: "Station Road Corner, Naihati", phone: "+91 90001 11102", coordinates: { lat: 22.8912, lng: 88.4197 } },
-            { name: "Trends Fashion Outlet", area: "Shyamnagar", img: "images/trends.jpg", address: "Feeder Road, Shyamnagar", phone: "+91 90001 11103", coordinates: { lat: 22.8278, lng: 88.4025 } },
-            { name: "Mio Amore Bakery", area: "Ichhapur", img: "images/mioamore.jpg", address: "Badamtala Junction, Ichhapur", phone: "+91 90001 11104", coordinates: { lat: 22.7952, lng: 88.3891 } },
-            { name: "Great Eastern Retail", area: "Barrackpore", img: "images/greateeastern.jpg", address: "SN Banerjee Rd, Barrackpore", phone: "+91 90001 11105", coordinates: { lat: 22.7619, lng: 88.3754 } },
-            { name: "Khadim's Footwear Hub", area: "Kankinara", img: "images/khadims.jpg", address: "Bazaar Market, Kankinara", phone: "+91 90001 11106", coordinates: { lat: 22.8647, lng: 88.4142 } },
-            { name: "Benarasi Niketan", area: "Naihati", img: "images/benarasi.jpg", address: "RBC Road Crossing, Naihati", phone: "+91 90001 11107", coordinates: { lat: 22.8931, lng: 88.4215 } },
-            { name: "Spencers Mega Mart", area: "Palta", img: "images/spencers.jpg", address: "Palta Station Road, Palta", phone: "+91 90001 11108", coordinates: { lat: 22.7854, lng: 88.3812 } },
-            { name: "Digital Xpress Mini", area: "Jagatdal", img: "images/digitalxpress.jpg", address: "G.D. Road, Jagatdal", phone: "+91 90001 11109", coordinates: { lat: 22.8492, lng: 88.4098 } },
-            { name: "Bata Premium Store", area: "Barrackpore", img: "images/bata.jpg", address: "Chiriamore, Barrackpore", phone: "+91 90001 11110", coordinates: { lat: 22.7539, lng: 88.3721 } },
-            { name: "PC Chandra Jewellers", area: "Barrackpore", img: "images/pcchandra.jpg", address: "Feeder Road, Barrackpore", phone: "+91 90001 11111", coordinates: { lat: 22.7651, lng: 88.3794 } }
-        ];
-
-        // ==========================================
-        // 2. STORES REPOSITORY DATABASE 
-        // ==========================================
-        const shopDatabase = [
-            { id: "sp_1", name: "Sreeram Garments", area: "Barrackpore", category: "Fashion & Garments", offer: "Buy 2 Get 1 Free on Kurtas", sale: "Festive Clearance", address: "SN Banerjee Road, Barrackpore", phone: "+91 98301 12345", tier: 499, img: "images/sreeram.jpg", defaultLikes: 42, coordinates: { lat: 22.7615, lng: 88.3751 } },
-            { id: "sp_2", name: "Maa Tara Electronics", area: "Barrackpore", category: "Electronics", offer: "Free Installation on Smart ACs", sale: "Summer Blast Deals", address: "Ghoshpara Road, Barrackpore", phone: "+91 98301 54321", tier: 199, img: "images/maatara.jpg", defaultLikes: 19, coordinates: { lat: 22.7641, lng: 88.3765 } },
-            { id: "sp_3", name: "Barrackpore Gift Center", area: "Barrackpore", category: "Others", offer: "Flat 10% off on custom corporate frames", sale: "None", address: "Station Road, Barrackpore", phone: "+91 98301 99999", tier: 199, img: "", defaultLikes: 8, coordinates: { lat: 22.7601, lng: 88.3742 } },
-            { id: "sp_4", name: "Chiriamore Cycle Hub", area: "Barrackpore", category: "Others", offer: "Free basic toolkit bundle on purchases", sale: "None", address: "Chiriamore Crossing, Barrackpore", phone: "+91 98301 88888", tier: 199, img: "", defaultLikes: 12, coordinates: { lat: 22.7542, lng: 88.3719 } },
-            { id: "sp_5", name: "Royal Diner Cafe", area: "Barrackpore", category: "Groceries & Sweets", offer: "Complimentary mocktail with large platters", sale: "None", address: "S.N. Banerjee Road, Barrackpore", phone: "+91 98301 77777", tier: 499, img: "", defaultLikes: 56, coordinates: { lat: 22.7622, lng: 88.3758 } },
-            { id: "sp_6", name: "Annapurna Sweets & Bakery", area: "Shyamnagar", category: "Groceries & Sweets", offer: "Flat 10% Off on Bulk Orders above ₹500", sale: "None", address: "Feeder Road, Shyamnagar", phone: "+91 94332 98765", tier: 199, img: "", defaultLikes: 31, coordinates: { lat: 22.8281, lng: 88.4031 } },
-            { id: "sp_7", name: "Roy Variety Stores", area: "Shyamnagar", category: "Groceries & Sweets", offer: "Get Free Sugar Pack with 5kg Mustard Oil", sale: "Ration Discount", address: "Ghoshpara Road, Shyamnagar", phone: "+91 91633 11223", tier: 199, img: "", defaultLikes: 14, coordinates: { lat: 22.8255, lng: 88.4011 } },
-            { id: "sp_8", name: "Saha Footwear Arcade", area: "Shyamnagar", category: "Others", offer: "Flat 20% off on premium leather variants", sale: "None", address: "Bazaar Area, Shyamnagar", phone: "+91 91633 44556", tier: 199, img: "", defaultLikes: 22, coordinates: { lat: 22.8269, lng: 88.4021 } },
-            { id: "sp_9", name: "Shyamnagar Digital World", area: "Shyamnagar", category: "Electronics", offer: "Zero down payment EMI schemes", sale: "Flash Tech Bonanza", address: "Station Road East, Shyamnagar", phone: "+91 91633 77889", tier: 499, img: "", defaultLikes: 89, coordinates: { lat: 22.8275, lng: 88.4044 } },
-            { id: "sp_10", name: "Naihati Digital Hub", area: "Naihati", category: "Electronics", offer: "Up to ₹2000 Cashback on exchanges", sale: "Monsoon Tech Splash", address: "RBC Road, Naihati", phone: "+91 90512 88990", tier: 199, img: "", defaultLikes: 17, coordinates: { lat: 22.8942, lng: 88.4221 } },
-            { id: "sp_11", name: "Alankar Jewellers", area: "Naihati", category: "Jewellery & Aesthetics", offer: "Zero Making Charges on Gold Ornaments", sale: "Wedding Special", address: "Station Road Bazaar, Naihati", phone: "+91 33 2581 4455", tier: 499, img: "", defaultLikes: 112, coordinates: { lat: 22.8919, lng: 88.4192 } },
-            { id: "sp_12", name: "Techno City Computers", area: "Shyamnagar", category: "Electronics", offer: "Up to 15% discount on storage devices", sale: "None", address: "Siddheswari Tala, Shyamnagar", phone: "+91 90001 11112", tier: 199, img: "", defaultLikes: 25, coordinates: { lat: 22.8312, lng: 88.4067 } }
-        ];
-
         let currentFilteredShops = []; 
         let displayedCount = 0;        
         const TILES_PER_PAGE = 6;      
 
         window.onload = function() {
-            currentFilteredShops = [...shopDatabase];
-            renderLocationAwareAds(""); 
-            renderPremiumPartners();
-            resetAndRenderGrid();
+            // Check to ensure data.js has been compiled correctly and arrays exist globally
+            if (typeof shopDatabase !== 'undefined' && typeof advertisementDatabase !== 'undefined') {
+                currentFilteredShops = [...shopDatabase];
+                renderLocationAwareAds(""); 
+                renderPremiumPartners();
+                resetAndRenderGrid();
+            } else {
+                console.error("Data tracking source 'data.js' failed to load context variables properly.");
+            }
         };
 
         // ==========================================
-        // 3. AD RENDER MODULE (With Auto Error Fallbacks)
+        // 1. AD RENDER MODULE (With Auto Error Fallbacks)
         // ==========================================
         function renderLocationAwareAds(targetArea) {
             const leftRack = document.getElementById("leftAdsRack");
@@ -852,7 +824,7 @@
         }
 
         // ==========================================
-        // 4. MAIN INTERFACE RENDER ENGINE
+        // 2. MAIN INTERFACE RENDER ENGINE
         // ==========================================
         function renderPremiumPartners() {
             const container = document.getElementById("premiumClientTrack");
@@ -950,7 +922,7 @@
         }
 
         // ==========================================
-        // 5. INTERACTIVE ENGAGEMENT MANAGER
+        // 3. INTERACTIVE ENGAGEMENT MANAGER
         // ==========================================
         function registerLikeMetric(event, shopId) {
             event.stopPropagation();
@@ -971,7 +943,7 @@
         }
 
         // ==========================================
-        // 6. REAL-TIME SEARCH INDEX FILTERING
+        // 4. REAL-TIME SEARCH INDEX FILTERING
         // ==========================================
         function triggerSearch() {
             const areaField = document.getElementById("areaInput");
