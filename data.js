@@ -6,7 +6,7 @@ const advertisementDatabase = [
     { 
         name: "Reliance Smart Plaza", 
         area: "Barrackpore", 
-        img: "images/reliance.jpg", 
+        img: "images/sample", 
         address: "Ghoshpara Road, Barrackpore", 
         phone: "+91 90001 11101",
         coords: { lat: 22.7644, lng: 88.3749 }
