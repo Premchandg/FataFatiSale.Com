@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Bole To Fata-Fati Sale | Your Ultimate Deal Hub</title>
+    <title>FataFatiSale.Com | Your Ultimate Shopping Friend</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -46,6 +46,7 @@
             position: relative;
         }
 
+        /* Ambient Background Glow Elements */
         body::before {
             content: '';
             position: absolute;
@@ -69,6 +70,7 @@
             pointer-events: none;
         }
 
+        /* --- Header Navigation (Glassmorphism) --- */
         header {
             position: fixed;
             top: 0;
@@ -123,8 +125,39 @@
         }
         .btn-nav:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 51, 102, 0.3); }
 
+        /* --- Slogan Translation Banner Layout --- */
+        .top-slogan-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto 2.5rem auto;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            gap: 2rem;
+        }
+        .slogan-left {
+            text-align: left;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            line-height: 1.4;
+            flex: 1;
+        }
+        .slogan-right {
+            text-align: right;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-secondary);
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        /* --- Hero Dashboard Interface & Responsive Stacked Search Bar --- */
         #home { 
-            padding: 10rem 2rem 5rem 2rem; 
+            padding: 11rem 2rem 5rem 2rem; 
             text-align: center; 
             max-width: 100%;
             background: radial-gradient(ellipse at top, rgba(30, 27, 75, 0.4), transparent 60%);
@@ -178,6 +211,7 @@
         }
         .search-container-box button:hover { opacity: 0.9; transform: scale(0.98); }
 
+        /* --- Premium Promo Banner --- */
         .pricing-banner { 
             background: var(--bg-card);
             backdrop-filter: blur(5px);
@@ -198,6 +232,7 @@
         .price-tag span.curr-price { color: var(--accent-success); text-shadow: 0 0 15px rgba(0,240,153,0.2); }
         .price-tag span.old-price { text-decoration: line-through; color: var(--text-muted); font-size: 1.4rem; margin-right: 0.6rem; opacity: 0.5; }
 
+        /* --- Flexible Dynamic Grid Framework Architecture --- */
         section { padding: 5rem 2rem; max-width: 1440px; margin: 0 auto; width: 100%; }
         .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 3rem; font-weight: 800; letter-spacing: -0.5px; }
         .section-title span { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -233,6 +268,7 @@
         }
         .ads-sidebar-headline i { color: var(--accent-secondary); }
 
+        /* --- Modern Ad Card Design & Smooth Flashing Module --- */
         .ad-card { 
             background: rgba(30, 41, 59, 0.4); 
             border: 1px solid rgba(255, 255, 255, 0.06); 
@@ -241,7 +277,7 @@
             position: relative; 
             overflow: hidden; 
             width: 100%;
-            min-height: 255px;
+            min-height: 240px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -259,6 +295,7 @@
             animation-play-state: paused;
         }
 
+        /* --- Empty Workspace Advertisement Alternative Banner --- */
         .empty-ad-placeholder-banner {
             background: linear-gradient(145deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
             border: 2px dashed rgba(255, 170, 0, 0.3);
@@ -315,9 +352,8 @@
         .ad-meta { font-size: 0.78rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 0.4rem; margin-top: 0.35rem; line-height: 1.3; }
         .ad-meta i { color: var(--accent-primary); width: 14px; text-align: center; margin-top: 2px; flex-shrink: 0; }
         .ad-meta span { word-break: break-word; }
-        .ad-route-btn { display: flex; align-items: center; gap: 0.3rem; margin-top: 0.5rem; font-size: 0.75rem; color: var(--accent-success); text-decoration: none; font-weight: 700; }
-        .ad-route-btn:hover { text-decoration: underline; }
 
+        /* --- Center Grid Strategy --- */
         .center-portal-content { display: flex; flex-direction: column; width: 100%; }
         .grid-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; width: 100%; }
 
@@ -388,6 +424,7 @@
         .btn-load-more:hover { background: rgba(255,255,255,0.05); border-color: var(--text-muted); }
         .no-results { text-align: center; grid-column: 1 / -1; padding: 5rem 2rem; color: var(--text-muted); }
 
+        /* --- About Presentation Space --- */
         .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; }
         .about-text h3 { font-size: 1.6rem; margin-bottom: 1.2rem; font-weight: 700; }
         .about-text p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem; }
@@ -398,6 +435,7 @@
         .stat-box { background: var(--bg-card); padding: 2rem; border-radius: 20px; text-align: center; border: 1px solid var(--border-glow); }
         .stat-box h4 { font-size: 2.4rem; color: var(--accent-primary); margin-bottom: 0.3rem; font-weight: 800; }
 
+        /* --- Premium Rolling Partner Module --- */
         .clients-slider { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1.2rem; }
         .client-logo { 
             font-size: 0.85rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.8px; 
@@ -406,24 +444,48 @@
         }
         .client-logo i { color: var(--accent-secondary); }
 
-        .contact-wrapper { background: var(--bg-surface); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 28px; padding: 3.5rem 2rem; border: 1px solid var(--border-glow); max-width: 850px; margin: 0 auto; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
-        .form-group { display: flex; flex-direction: column; gap: 0.6rem; position: relative; }
-        .form-group.full-width { grid-column: span 2; }
-        .form-group label { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-        
-        .form-group input, .form-group select, .form-group textarea { background: rgba(0,0,0,0.2); border: 1px solid var(--border-glow); padding: 1rem 1.2rem; border-radius: 12px; color: var(--text-main); outline: none; font-size: 0.95rem; font-weight: 500; transition: var(--transition); appearance: none; -webkit-appearance: none; }
-        .form-group input:focus, .form-group select:focus { border-color: rgba(255, 170, 0, 0.4); background: rgba(0,0,0,0.3); }
-        .form-group select { padding-right: 2.5rem; }
-        .form-group.select-group::after { content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; right: 1.2rem; bottom: 1.1rem; color: var(--text-muted); font-size: 0.75rem; pointer-events: none; }
-        
-        .btn-submit { 
-            background: var(--gradient-primary); border: none; padding: 1.2rem 2.5rem; border-radius: 14px; 
-            color: #000; font-weight: 800; cursor: pointer; width: 100%; font-size: 1rem; transition: var(--transition); 
-            box-shadow: 0 4px 15px rgba(255, 51, 102, 0.2);
+        /* --- Onboarding Card Module (Cleaned Layout Alternative) --- */
+        .contact-wrapper { 
+            background: var(--bg-surface); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
+            border-radius: 28px; 
+            padding: 3rem 2rem; 
+            border: 1px solid var(--border-glow); 
+            max-width: 650px; 
+            margin: 0 auto; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
+            text-align: center;
         }
-        .btn-submit:hover { transform: scale(0.99); opacity: 0.95; }
+        .register-subheading {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+        .call-now-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 240, 153, 0.2);
+            padding: 1.2rem 2rem;
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--accent-success);
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(0, 240, 153, 0.05);
+        }
+        .call-now-box:hover {
+            transform: scale(1.03);
+            border-color: var(--accent-success);
+            box-shadow: 0 8px 25px rgba(0, 240, 153, 0.2);
+            color: #fff;
+        }
 
+        /* --- Unified Footer Infrastructure --- */
         footer { background: #05080f; padding: 5rem 2rem 2.5rem 2rem; margin-top: 6rem; border-top: 1px solid var(--border-glow); width: 100%; }
         .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
         .footer-brand h3 { font-size: 1.5rem; color: var(--text-main); margin-bottom: 1.2rem; font-weight: 800; letter-spacing: -0.5px; }
@@ -442,6 +504,7 @@
         .social-btn.fb:hover { background: #1877f2; color: #fff; border-color: transparent; }
         .footer-copyright { text-align: center; border-top: 1px solid var(--border-glow); padding-top: 2rem; color: var(--text-muted); font-size: 0.9rem; opacity: 0.7; }
 
+        /* --- Custom Keyframe Animations --- */
         @keyframes pulseGlow {
             0% { filter: drop-shadow(0 0 2px rgba(255, 51, 102, 0.4)); }
             100% { filter: drop-shadow(0 0 12px rgba(255, 170, 0, 0.8)); }
@@ -460,6 +523,7 @@
             }
         }
 
+        /* --- Structural Responsiveness Framework --- */
         @media (max-width: 1280px) {
             .three-column-portal-wrapper { grid-template-columns: 1fr; gap: 3rem; }
             .side-ads-column { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
@@ -468,7 +532,16 @@
             .side-ads-column:nth-of-type(2) { order: 3; }
         }
 
+        /* MOBILE OVERHAUL */
         @media (max-width: 768px) {
+            .top-slogan-bar {
+                flex-direction: column;
+                gap: 0.8rem;
+                text-align: center;
+            }
+            .slogan-left, .slogan-right {
+                text-align: center;
+            }
             .search-container-box {
                 flex-direction: column;
                 padding: 1rem;
@@ -476,7 +549,6 @@
                 gap: 1rem;
                 width: 100%;
             }
-
             .search-field-group {
                 width: 100% !important;
                 padding-left: 0.5rem;
@@ -484,25 +556,21 @@
                 border-bottom: 1px solid var(--border-glow);
                 padding-bottom: 0.5rem;
             }
-
             .search-field-group::after {
                 right: 0.5rem;
                 bottom: 1.1rem;
             }
-
             .search-container-box button {
                 width: 100%;
                 padding: 1.1rem;
                 border-radius: 14px;
             }
-
             .grid-layout { grid-template-columns: 1fr; gap: 1.5rem; }
             .nav-links { display: none; }
             .hero-content h1 { font-size: 2.2rem; }
-            .form-grid { grid-template-columns: 1fr; gap: 1.2rem; }
-            .form-group.full-width { grid-column: span 1; }
             .about-grid, .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
             section { padding: 4rem 1.5rem; }
+            .call-now-box { font-size: 1.25rem; padding: 1rem 1.5rem; }
         }
     </style>
 </head>
@@ -522,6 +590,15 @@
     </header>
 
     <section id="home">
+        <div class="top-slogan-bar">
+            <div class="slogan-left">
+                আপনার পছন্দ, আমাদের খোঁজ — আপনার এলাকার সব বড় সেল এখন মাত্র এক ক্লিক দূরে!
+            </div>
+            <div class="slogan-right">
+                आपकी पसंद, हमारी खोज — आपके एरिया की हर बड़ी सेल अब एक क्लिक दूर!
+            </div>
+        </div>
+
         <div class="hero-content">
             <h1>Smarter Shopping, <br><span>Smarter You!</span></h1>
             <p>Shop What You Love. We’ll Find the Best Deals Around You.</p>
@@ -587,15 +664,16 @@
     </section>
 
     <section id="about">
-        <h2 class="section-title">What is <span>Bole To Fata-Fati Sale</span>?</h2>
+        <h2 class="section-title">What is <span>FataFatiSale.Com</span>?</h2>
         <div class="about-grid">
             <div class="about-text">
-                <h3>Your real-time neighborhood retail mapping engine.</h3>
-                <p>We provide custom, low-cost premium directory lines across target sub-divisional business zones. Users discover flash pricing markers instantly and can chart directly to physical drop coordinates with a single touch.</p>
+                <h3>Aapka Shopping Buddy</h3>
+                <p>FataFatiSale.com helps you discover the best sales and offers from stores around you. Find nearby deals, browse products, and navigate directly to the shop—all in one place.</p>
                 <ul class="features-list">
-                    <li><i class="fa-solid fa-square-check"></i> Clean, verified merchant directory coordinates</li>
-                    <li><i class="fa-solid fa-square-check"></i> Merchant-curated markdown items and inventory catalogs</li>
-                    <li><i class="fa-solid fa-square-check"></i> Instant, smooth device navigation integrations</li>
+                    <li><i class="fa-solid fa-square-check"></i> Verified local stores </li>
+                    <li><i class="fa-solid fa-square-check"></i> Latest deals and offers </li>
+                    <li><i class="fa-solid fa-square-check"></i> Easy product discovery </li>
+                    <li><i class="fa-solid fa-square-check"></i> One-tap directions to the store </li>
                 </ul>
             </div>
             <div class="about-stats">
@@ -604,7 +682,7 @@
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem;">Fully Connected</p>
                 </div>
                 <div class="stat-box">
-                    <h4>60 Days</h4>
+                    <h4>30 Days</h4>
                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem;">Free Trial Period</p>
                 </div>
             </div>
@@ -619,55 +697,10 @@
     <section id="contact">
         <h2 class="section-title">Grow Your Business: <span>Register Shop</span></h2>
         <div class="contact-wrapper">
-            <form id="registrationForm" onsubmit="handleFormSubmit(event)">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="bizName">Business / Shop Name</label>
-                        <input type="text" id="bizName" placeholder="e.g., Apex Electronic World" required>
-                    </div>
-                    <div class="form-group select-group">
-                        <label for="bizCategory">Category Matrix</label>
-                        <select id="bizCategory" required>
-                            <option value="">Select Category</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Fashion & Garments">Fashion & Garments</option>
-                            <option value="Groceries & Sweets">Groceries & Sweets</option>
-                            <option value="Jewellery & Aesthetics">Jewellery & Aesthetics</option>
-                            <option value="Others">Others (Miscellaneous)</option>
-                        </select>
-                    </div>
-                    <div class="form-group select-group">
-                        <label for="bizArea">Target Hub / Region</label>
-                        <select id="bizArea" required>
-                            <option value="">Select Area</option>
-                            <option value="Barrackpore">Barrackpore</option>
-                            <option value="Shyamnagar">Shyamnagar</option>
-                            <option value="Naihati">Naihati</option>
-                            <option value="Ichhapur">Ichhapur</option>
-                            <option value="Palta">Palta</option>
-                            <option value="Jagatdal">Jagatdal</option>
-                            <option value="Kankinara">Kankinara</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="bizOffer">Active Deal Highlight</label>
-                        <input type="text" id="bizOffer" placeholder="e.g., Flat 30% off on premium audio lines" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bizPhone">Contact Phone Line</label>
-                        <input type="tel" id="bizPhone" placeholder="e.g., +91 98765 43210" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="bizAddress">Storefront Street Address</label>
-                        <input type="text" id="bizAddress" placeholder="e.g., 14, Feeder Road, Ward 5" required>
-                    </div>
-                    <div class="form-group full-width">
-                        <label for="bizSale">Seasonal Promotional Event Title (Optional)</label>
-                        <input type="text" id="bizSale" placeholder="e.g., Pre-Festive Stock Clearance Extravaganza">
-                    </div>
-                </div>
-                <button type="submit" class="btn-submit">Submit Registration Details (₹99 Shop Verification)</button>
-            </form>
+            <p class="register-subheading">And Get Your Shop Listed at Top</p>
+            <a href="tel:+919999999999" class="call-now-box">
+                <i class="fa-solid fa-phone-volume"></i> Call Now : +91 999 9999 999
+            </a>
         </div>
     </section>
 
@@ -695,13 +728,46 @@
             </div>
         </div>
         <div class="footer-copyright">
-            <p>© 2026 Bole To Fata-Fati Sale. All Rights Reserved. Mapping local opportunities efficiently.</p>
+            <p>© 2026 Fata-Fati Sale. All Rights Reserved. Mapping local opportunities efficiently.</p>
         </div>
     </footer>
 
-    <script src="data.js"></script>
-
     <script>
+        // ==========================================
+        // 1. DYNAMIC ADVERTISEMENT CONTROLLER STORAGE
+        // ==========================================
+        const advertisementDatabase = [
+            { name: "Reliance Smart Plaza", area: "Barrackpore", img: "images/reliance.jpg", address: "Ghoshpara Road, Barrackpore", phone: "+91 90001 11101", coordinates: { lat: 22.7644, lng: 88.3768 } },
+            { name: "Senco Gold & Diamonds", area: "Naihati", img: "images/senco.jpg", address: "Station Road Corner, Naihati", phone: "+91 90001 11102", coordinates: { lat: 22.8912, lng: 88.4197 } },
+            { name: "Trends Fashion Outlet", area: "Shyamnagar", img: "images/trends.jpg", address: "Feeder Road, Shyamnagar", phone: "+91 90001 11103", coordinates: { lat: 22.8278, lng: 88.4025 } },
+            { name: "Mio Amore Bakery", area: "Ichhapur", img: "images/mioamore.jpg", address: "Badamtala Junction, Ichhapur", phone: "+91 90001 11104", coordinates: { lat: 22.7952, lng: 88.3891 } },
+            { name: "Great Eastern Retail", area: "Barrackpore", img: "images/greateeastern.jpg", address: "SN Banerjee Rd, Barrackpore", phone: "+91 90001 11105", coordinates: { lat: 22.7619, lng: 88.3754 } },
+            { name: "Khadim's Footwear Hub", area: "Kankinara", img: "images/khadims.jpg", address: "Bazaar Market, Kankinara", phone: "+91 90001 11106", coordinates: { lat: 22.8647, lng: 88.4142 } },
+            { name: "Benarasi Niketan", area: "Naihati", img: "images/benarasi.jpg", address: "RBC Road Crossing, Naihati", phone: "+91 90001 11107", coordinates: { lat: 22.8931, lng: 88.4215 } },
+            { name: "Spencers Mega Mart", area: "Palta", img: "images/spencers.jpg", address: "Palta Station Road, Palta", phone: "+91 90001 11108", coordinates: { lat: 22.7854, lng: 88.3812 } },
+            { name: "Digital Xpress Mini", area: "Jagatdal", img: "images/digitalxpress.jpg", address: "G.D. Road, Jagatdal", phone: "+91 90001 11109", coordinates: { lat: 22.8492, lng: 88.4098 } },
+            { name: "Bata Premium Store", area: "Barrackpore", img: "images/bata.jpg", address: "Chiriamore, Barrackpore", phone: "+91 90001 11110", coordinates: { lat: 22.7539, lng: 88.3721 } },
+            { name: "PC Chandra Jewellers", area: "Barrackpore", img: "images/pcchandra.jpg", address: "Feeder Road, Barrackpore", phone: "+91 90001 11111", coordinates: { lat: 22.7651, lng: 88.3794 } }
+        ];
+
+        // ==========================================
+        // 2. STORES REPOSITORY DATABASE 
+        // ==========================================
+        const shopDatabase = [
+            { id: "sp_1", name: "Sreeram Garments", area: "Barrackpore", category: "Fashion & Garments", offer: "Buy 2 Get 1 Free on Kurtas", sale: "Festive Clearance", address: "SN Banerjee Road, Barrackpore", phone: "+91 98301 12345", tier: 499, img: "images/sreeram.jpg", defaultLikes: 42, coordinates: { lat: 22.7615, lng: 88.3751 } },
+            { id: "sp_2", name: "Maa Tara Electronics", area: "Barrackpore", category: "Electronics", offer: "Free Installation on Smart ACs", sale: "Summer Blast Deals", address: "Ghoshpara Road, Barrackpore", phone: "+91 98301 54321", tier: 199, img: "images/maatara.jpg", defaultLikes: 19, coordinates: { lat: 22.7641, lng: 88.3765 } },
+            { id: "sp_3", name: "Barrackpore Gift Center", area: "Barrackpore", category: "Others", offer: "Flat 10% off on custom corporate frames", sale: "None", address: "Station Road, Barrackpore", phone: "+91 98301 99999", tier: 199, img: "", defaultLikes: 8, coordinates: { lat: 22.7601, lng: 88.3742 } },
+            { id: "sp_4", name: "Chiriamore Cycle Hub", area: "Barrackpore", category: "Others", offer: "Free basic toolkit bundle on purchases", sale: "None", address: "Chiriamore Crossing, Barrackpore", phone: "+91 98301 88888", tier: 199, img: "", defaultLikes: 12, coordinates: { lat: 22.7542, lng: 88.3719 } },
+            { id: "sp_5", name: "Royal Diner Cafe", area: "Barrackpore", category: "Groceries & Sweets", offer: "Complimentary mocktail with large platters", sale: "None", address: "S.N. Banerjee Road, Barrackpore", phone: "+91 98301 77777", tier: 499, img: "", defaultLikes: 56, coordinates: { lat: 22.7622, lng: 88.3758 } },
+            { id: "sp_6", name: "Annapurna Sweets & Bakery", area: "Shyamnagar", category: "Groceries & Sweets", offer: "Flat 10% Off on Bulk Orders above ₹500", sale: "None", address: "Feeder Road, Shyamnagar", phone: "+91 94332 98765", tier: 199, img: "", defaultLikes: 31, coordinates: { lat: 22.8281, lng: 88.4031 } },
+            { id: "sp_7", name: "Roy Variety Stores", area: "Shyamnagar", category: "Groceries & Sweets", offer: "Get Free Sugar Pack with 5kg Mustard Oil", sale: "Ration Discount", address: "Ghoshpara Road, Shyamnagar", phone: "+91 91633 11223", tier: 199, img: "", defaultLikes: 14, coordinates: { lat: 22.8255, lng: 88.4011 } },
+            { id: "sp_8", name: "Saha Footwear Arcade", area: "Shyamnagar", category: "Others", offer: "Flat 20% off on premium leather variants", sale: "None", address: "Bazaar Area, Shyamnagar", phone: "+91 91633 44556", tier: 199, img: "", defaultLikes: 22, coordinates: { lat: 22.8269, lng: 88.4021 } },
+            { id: "sp_9", name: "Shyamnagar Digital World", area: "Shyamnagar", category: "Electronics", offer: "Zero down payment EMI schemes", sale: "Flash Tech Bonanza", address: "Station Road East, Shyamnagar", phone: "+91 91633 77889", tier: 499, img: "", defaultLikes: 89, coordinates: { lat: 22.8275, lng: 88.4044 } },
+            { id: "sp_10", name: "Naihati Digital Hub", area: "Naihati", category: "Electronics", offer: "Up to ₹2000 Cashback on exchanges", sale: "Monsoon Tech Splash", address: "RBC Road, Naihati", phone: "+91 90512 88990", tier: 199, img: "", defaultLikes: 17, coordinates: { lat: 22.8942, lng: 88.4221 } },
+            { id: "sp_11", name: "Alankar Jewellers", area: "Naihati", category: "Jewellery & Aesthetics", offer: "Zero Making Charges on Gold Ornaments", sale: "Wedding Special", address: "Station Road Bazaar, Naihati", phone: "+91 33 2581 4455", tier: 499, img: "", defaultLikes: 112, coordinates: { lat: 22.8919, lng: 88.4192 } },
+            { id: "sp_12", name: "Techno City Computers", area: "Shyamnagar", category: "Electronics", offer: "Up to 15% discount on storage devices", sale: "None", address: "Siddheswari Tala, Shyamnagar", phone: "+91 90001 11112", tier: 199, img: "", defaultLikes: 25, coordinates: { lat: 22.8312, lng: 88.4067 } }
+        ];
+
         let currentFilteredShops = []; 
         let displayedCount = 0;        
         const TILES_PER_PAGE = 6;      
@@ -713,9 +779,9 @@
             resetAndRenderGrid();
         };
 
-        // =========================================================================
-        // AD RENDER ENGINE (Generates precise maps intent paths using coordinates)
-        // =========================================================================
+        // ==========================================
+        // 3. AD RENDER MODULE (With Auto Error Fallbacks)
+        // ==========================================
         function renderLocationAwareAds(targetArea) {
             const leftRack = document.getElementById("leftAdsRack");
             const rightRack = document.getElementById("rightAdsRack");
@@ -759,8 +825,8 @@
                 
                 const mediaSource = ad.img ? `<img src="${ad.img}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="${ad.name}"><div style="display:none; width:100%; height:100%; align-items:center; justify-content:center;"><i class="fa-solid fa-image" style="font-size: 1.3rem; opacity: 0.15;"></i></div>` : `<i class="fa-solid fa-image" style="font-size: 1.3rem; opacity: 0.15;"></i>`;
                 
-                // Native Dynamic Maps URI string implementation via coordinates logic
-                const adMapsUrl = `https://www.google.com/maps/search/?api=1&query=${ad.coords.lat},${ad.coords.lng}`;
+                const adQueryStr = encodeURIComponent(`${ad.name}, ${ad.address}`);
+                const adMapUrl = `https://www.google.com/maps/search/?api=1&query=${adQueryStr}`;
 
                 card.innerHTML = `
                     <div>
@@ -771,8 +837,8 @@
                     <div style="margin-top: auto;">
                         <div class="ad-meta"><i class="fa-solid fa-map-pin"></i><span>${ad.address}</span></div>
                         <div class="ad-meta"><i class="fa-solid fa-phone"></i><span>${ad.phone}</span></div>
-                        <a href="${adMapsUrl}" target="_blank" rel="noopener noreferrer" class="ad-route-btn">
-                            <i class="fa-solid fa-diamond-turn-right"></i> View Location Map
+                        <a href="${adMapUrl}" target="_blank" rel="noopener noreferrer" class="map-anchor-btn" style="padding: 0.5rem 1rem; font-size: 0.8rem; margin-top: 0.5rem;">
+                            View Ad Location
                         </a>
                     </div>
                 `;
@@ -785,9 +851,9 @@
             });
         }
 
-        // =========================================================================
-        // CORE GRID RENDER LOGIC (Parses Coordinates to handle precise mapping vectors)
-        // =========================================================================
+        // ==========================================
+        // 4. MAIN INTERFACE RENDER ENGINE
+        // ==========================================
         function renderPremiumPartners() {
             const container = document.getElementById("premiumClientTrack");
             container.innerHTML = "";
@@ -840,8 +906,8 @@
                 
                 const shopMediaContent = shop.img ? `<img src="${shop.img}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="${shop.name}"><div style="display:none; width:100%; height:100%; align-items:center; justify-content:center;"><i class="fa-solid fa-shop" style="font-size: 2.5rem; opacity: 0.1;"></i></div>` : `<i class="fa-solid fa-shop" style="font-size: 2.5rem; opacity: 0.1;"></i>`;
 
-                // Replaced previous text query engine logic with strict API coordinates handling
-                const mapRouteUrl = `https://www.google.com/maps/search/?api=1&query=${shop.coords.lat},${shop.coords.lng}`;
+                const encodedMapQuery = encodeURIComponent(`${shop.name}, ${shop.address}`);
+                const mapRouteUrl = `https://www.google.com/maps/search/?api=1&query=${encodedMapQuery}`;
 
                 const card = document.createElement("div");
                 card.className = "shop-card";
@@ -883,6 +949,9 @@
             document.getElementById("paginationBlock").style.display = (displayedCount >= totalAvailable) ? "none" : "block";
         }
 
+        // ==========================================
+        // 5. INTERACTIVE ENGAGEMENT MANAGER
+        // ==========================================
         function registerLikeMetric(event, shopId) {
             event.stopPropagation();
             if (localStorage.getItem(`voted_${shopId}`)) return;
@@ -901,6 +970,9 @@
             if (clickedBtn) clickedBtn.classList.add("already-voted");
         }
 
+        // ==========================================
+        // 6. REAL-TIME SEARCH INDEX FILTERING
+        // ==========================================
         function triggerSearch() {
             const areaField = document.getElementById("areaInput");
             const areaQuery = areaField.value.trim().toLowerCase();
@@ -922,13 +994,6 @@
             if (event.key === "Enter") {
                 triggerSearch();
             }
-        }
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const name = document.getElementById("bizName").value;
-            alert(`Application for "${name}" captured successfully!`);
-            document.getElementById("registrationForm").reset();
         }
     </script>
 </body>
