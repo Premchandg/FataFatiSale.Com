@@ -30,7 +30,7 @@ const advertisementDatabase = [
     { 
         name: "Mio Amore Bakery", 
         area: "Ichhapur", 
-        img: "images/bakery.png", 
+        img: "images/bakery.jpg", 
         address: "Badamtala Junction, Ichhapur", 
         phone: "+91 90001 11104",
         coords: { lat: 22.7915, lng: 88.3792 }
@@ -38,7 +38,7 @@ const advertisementDatabase = [
     { 
         name: "Great Eastern Retail", 
         area: "Barrackpore", 
-        img: "images/electronics.png", 
+        img: "images/electronics.jpg", 
         address: "SN Banerjee Rd, Barrackpore", 
         phone: "+91 90001 11105",
         coords: { lat: 22.7601, lng: 88.3698 }
@@ -78,7 +78,7 @@ const advertisementDatabase = [
     { 
         name: "Bata Premium Store", 
         area: "Barrackpore", 
-        img: "images/juta.png", 
+        img: "images/juta.jpg", 
         address: "Chiriamore, Barrackpore", 
         phone: "+91 90001 11110",
         coords: { lat: 22.7538, lng: 88.3772 }
@@ -118,12 +118,12 @@ const shopDatabase = [
         address: "Ghoshpara Road, Barrackpore", 
         phone: "+91 98301 54321", 
         tier: 199, 
-        img: "images/electronics.jpg", 
+        img: "images/electronics.png", 
         defaultLikes: 19,
         coords: { lat: 22.7655, lng: 88.3762 }
     },
     { 
-        id: "sp_3", 
+        id: "sp_13", 
         name: "Barrackpore Gift Center", 
         area: "Barrackpore", 
         category: "Others", 
@@ -137,7 +137,7 @@ const shopDatabase = [
         coords: { lat: 22.7594, lng: 88.3644 }
     },
     { 
-        id: "sp_4", 
+        id: "sp_14", 
         name: "Chiriamore Cycle Hub", 
         area: "Barrackpore", 
         category: "Others", 
@@ -151,7 +151,7 @@ const shopDatabase = [
         coords: { lat: 22.7541, lng: 88.3769 }
     },
     { 
-        id: "sp_5", 
+        id: "sp_15", 
         name: "Royal Diner Cafe", 
         area: "Barrackpore", 
         category: "Groceries & Sweets", 
