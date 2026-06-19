@@ -14,7 +14,7 @@ const advertisementDatabase = [
     { 
         name: "Senco Gold & Diamonds", 
         area: "Naihati", 
-        img: "images/senco.jpg", 
+        img: "images/ornaments.png", 
         address: "Station Road Corner, Naihati", 
         phone: "+91 90001 11102",
         coords: { lat: 22.8914, lng: 88.4197 }
@@ -22,7 +22,7 @@ const advertisementDatabase = [
     { 
         name: "Trends Fashion Outlet", 
         area: "Shyamnagar", 
-        img: "images/trends.jpg", 
+        img: "images/fashion.png", 
         address: "Feeder Road, Shyamnagar", 
         phone: "+91 90001 11103",
         coords: { lat: 22.8277, lng: 88.4022 }
@@ -30,7 +30,7 @@ const advertisementDatabase = [
     { 
         name: "Mio Amore Bakery", 
         area: "Ichhapur", 
-        img: "images/mioamore.jpg", 
+        img: "images/bakery.png", 
         address: "Badamtala Junction, Ichhapur", 
         phone: "+91 90001 11104",
         coords: { lat: 22.7915, lng: 88.3792 }
@@ -38,7 +38,7 @@ const advertisementDatabase = [
     { 
         name: "Great Eastern Retail", 
         area: "Barrackpore", 
-        img: "images/greateastern.jpg", 
+        img: "images/electronics.png", 
         address: "SN Banerjee Rd, Barrackpore", 
         phone: "+91 90001 11105",
         coords: { lat: 22.7601, lng: 88.3698 }
@@ -46,7 +46,7 @@ const advertisementDatabase = [
     { 
         name: "Khadim's Footwear Hub", 
         area: "Kankinara", 
-        img: "images/khadims.jpg", 
+        img: "images/jutas.png", 
         address: "Bazaar Market, Kankinara", 
         phone: "+91 90001 11106",
         coords: { lat: 22.8647, lng: 88.4144 }
@@ -54,7 +54,7 @@ const advertisementDatabase = [
     { 
         name: "Benarasi Niketan", 
         area: "Naihati", 
-        img: "images/benarasi.jpg", 
+        img: "images/garments.png", 
         address: "RBC Road Crossing, Naihati", 
         phone: "+91 90001 11107",
         coords: { lat: 22.8930, lng: 88.4215 }
@@ -70,7 +70,7 @@ const advertisementDatabase = [
     { 
         name: "Digital Xpress Mini", 
         area: "Jagatdal", 
-        img: "images/digitalxpress.jpg", 
+        img: "images/electronics.png", 
         address: "G.D. Road, Jagatdal", 
         phone: "+91 90001 11109",
         coords: { lat: 22.8492, lng: 88.4099 }
@@ -78,7 +78,7 @@ const advertisementDatabase = [
     { 
         name: "Bata Premium Store", 
         area: "Barrackpore", 
-        img: "images/bata.jpg", 
+        img: "images/juta.png", 
         address: "Chiriamore, Barrackpore", 
         phone: "+91 90001 11110",
         coords: { lat: 22.7538, lng: 88.3772 }
@@ -86,7 +86,7 @@ const advertisementDatabase = [
     { 
         name: "PC Chandra Jewellers", 
         area: "Barrackpore", 
-        img: "images/pcchandra.jpg", 
+        img: "images/ornaments.png", 
         address: "Feeder Road, Barrackpore", 
         phone: "+91 90001 11111",
         coords: { lat: 22.7615, lng: 88.3711 }
@@ -104,7 +104,7 @@ const shopDatabase = [
         address: "SN Banerjee Road, Barrackpore", 
         phone: "+91 98301 12345", 
         tier: 499, 
-        img: "images/sreeram.jpg", 
+        img: "images/garments.jpg", 
         defaultLikes: 42,
         coords: { lat: 22.7622, lng: 88.3705 }
     },
@@ -118,7 +118,7 @@ const shopDatabase = [
         address: "Ghoshpara Road, Barrackpore", 
         phone: "+91 98301 54321", 
         tier: 199, 
-        img: "images/maatara.jpg", 
+        img: "images/electronics.jpg", 
         defaultLikes: 19,
         coords: { lat: 22.7655, lng: 88.3762 }
     },
@@ -174,18 +174,18 @@ const shopDatabase = [
         address: "Feeder Road, Shyamnagar", 
         phone: "+91 94332 98765", 
         tier: 199, 
-        img: "", 
+        img: "images/sweets.png", 
         defaultLikes: 31,
         coords: { lat: 22.8285, lng: 88.4015 }
     },
     { 
         id: "sp_7", 
-        name: "Roy Variety Stores", 
-        area: "Shyamnagar", 
+        name: "Variety Stores", 
+        area: "titagarh", 
         category: "Groceries & Sweets", 
         offer: "Get Free Sugar Pack with 5kg Mustard Oil", 
         sale: "Ration Discount", 
-        address: "Ghoshpara Road, Shyamnagar", 
+        address: "titagarh", 
         phone: "+91 91633 11223", 
         tier: 199, 
         img: "", 
@@ -202,7 +202,7 @@ const shopDatabase = [
         address: "Bazaar Area, Shyamnagar", 
         phone: "+91 91633 44556", 
         tier: 199, 
-        img: "", 
+        img: "images/juta.png", 
         defaultLikes: 22,
         coords: { lat: 22.8268, lng: 88.3998 }
     },
@@ -216,7 +216,7 @@ const shopDatabase = [
         address: "Station Road East, Shyamnagar", 
         phone: "+91 91633 77889", 
         tier: 499, 
-        img: "", 
+        img: "images/electronics.png", 
         defaultLikes: 89,
         coords: { lat: 22.8271, lng: 88.4031 }
     },
@@ -230,7 +230,7 @@ const shopDatabase = [
         address: "RBC Road, Naihati", 
         phone: "+91 90512 88990", 
         tier: 199, 
-        img: "", 
+        img: "images/electronics.png", 
         defaultLikes: 17,
         coords: { lat: 22.8942, lng: 88.4231 }
     },
@@ -244,7 +244,7 @@ const shopDatabase = [
         address: "Station Road Bazaar, Naihati", 
         phone: "+91 33 2581 4455", 
         tier: 499, 
-        img: "", 
+        img: "images/ornaments.png", 
         defaultLikes: 112,
         coords: { lat: 22.8911, lng: 88.4189 }
     },
@@ -258,7 +258,7 @@ const shopDatabase = [
         address: "Siddheswari Tala, Shyamnagar", 
         phone: "+91 90001 11112", 
         tier: 199, 
-        img: "", 
+        img: "images/electronics.png", 
         defaultLikes: 25,
         coords: { lat: 22.8315, lng: 88.4062 }
     }
