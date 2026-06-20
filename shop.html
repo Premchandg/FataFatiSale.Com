@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shop Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root{--bg-dark:#090d16;--text-main:#f8fafc;--text-muted:#94a3b8;--accent-primary:#ffaa00;--accent-secondary:#ff3366;--border-glow:rgba(255,255,255,0.06)}
+        *{box-sizing:border-box;margin:0;padding:0;font-family:Plus Jakarta Sans,system-ui,-apple-system,Segoe UI,Roboto}
+        body{background:var(--bg-dark);color:var(--text-main);padding:1rem}
+        .top-bar{display:flex;align-items:center;gap:1rem;padding:1.1rem 1rem;border-bottom:1px solid var(--border-glow);position:sticky;top:0;background:rgba(9,13,22,0.95);backdrop-filter:blur(10px);z-index:10}
+        .back-link{color:var(--text-muted);text-decoration:none;font-weight:700;white-space:nowrap}
+        .top-title-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;text-align:center}
+        .shop-title{font-weight:900;font-size:2.1rem;letter-spacing:-0.7px;color:var(--text-main);text-transform:uppercase;line-height:1.05;text-shadow:0 2px 18px rgba(255,170,0,0.18);overflow-wrap:break-word}
+        .shop-subtitle{font-size:0.95rem;color:var(--accent-primary);font-weight:700;letter-spacing:0.3px;}
+        .top-actions{display:flex;align-items:center;gap:0.75rem;white-space:nowrap;flex-shrink:0;min-width:240px;justify-content:flex-end}
+        .order-now{font-size:1.05rem;color:var(--text-main);font-weight:800;letter-spacing:0.15px;text-transform:none}
+        .call-us{display:inline-flex;align-items:center;justify-content:center;padding:0.95rem 2rem;border-radius:999px;background:linear-gradient(135deg, #ffb500, #ff4f83);color:#fff;font-weight:800;text-decoration:none;box-shadow:0 10px 24px rgba(255,95,97,0.25);transition:var(--transition);min-width:180px;box-sizing:border-box}
+        .call-us i{margin-right:0.55rem;font-size:0.95rem}
+        .call-us:hover{transform:translateY(-1px);opacity:0.98}
+        .call-us:hover{transform:translateY(-1px);opacity:0.95}
+        .container{max-width:980px;margin:1.2rem auto}
+        .hero{display:flex;gap:1rem;background:rgba(255,255,255,0.02);border-radius:18px;padding:1rem;border:1px solid var(--border-glow);overflow:hidden;align-items:flex-start}
+        .hero-main{flex:1;min-height:220px;border-radius:16px;overflow:hidden;position:relative}
+        .hero-main img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+        .hero-side{width:170px;display:flex;flex-direction:column;gap:0.75rem}
+        .thumb{height:84px;border-radius:14px;overflow:hidden;border:1px solid var(--border-glow);cursor:pointer;transition:transform 0.3s ease}
+        .thumb:hover{transform:translateY(-2px)}
+        .thumb img{width:100%;height:100%;object-fit:cover}
+        .details{margin-top:1.2rem;background:rgba(255,255,255,0.02);padding:1.2rem;border-radius:18px;border:1px solid var(--border-glow)}
+        .details h3{font-size:1.55rem;margin-bottom:0.75rem;letter-spacing:-0.3px}
+        .meta{display:flex;gap:1.2rem;flex-wrap:wrap;color:var(--text-muted);margin-bottom:0.8rem}
+        .like-btn{background:transparent;border:1px solid var(--border-glow);padding:0.6rem 0.8rem;border-radius:10px;color:var(--text-main);cursor:pointer;font-weight:700}
+        .like-btn.already-voted{background:var(--accent-secondary);color:#fff;border-color:transparent}
+        .map-link{display:inline-block;margin-top:0.6rem;padding:0.6rem 0.9rem;border-radius:12px;background:rgba(255,255,255,0.03);text-decoration:none;color:var(--text-main);border:1px solid var(--border-glow)}
+        .product-gallery{margin-top:1.4rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+        .product-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s ease,box-shadow 0.3s ease}
+        .product-card:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(0,0,0,0.18)}
+        .product-card img{width:100%;height:160px;object-fit:cover}
+        .product-info{padding:1rem;display:flex;flex-direction:column;gap:0.4rem}
+        .product-name{font-weight:800;font-size:1rem;color:var(--text-main)}
+        .product-type{font-size:0.88rem;color:var(--text-muted)}
+        @media(max-width:960px){.hero{flex-direction:column}.hero-side{width:100%;flex-direction:row;overflow:auto}.thumb{height:64px;min-width:96px}.product-gallery{grid-template-columns:1fr}}
+        @media(max-width:760px){.top-bar{flex-direction:column;align-items:flex-start}.hero-side{flex-wrap:wrap}.thumb{height:58px;min-width:90px}.details{padding:1rem}}
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back</a>
+        <div class="top-title-wrap">
+            <div class="shop-title" id="shopName">Shop Name</div>
+            <div class="shop-subtitle" id="shopSubtitle">Local Retailer</div>
+        </div>
+        <div class="top-actions">
+            <div class="order-now">Order Now</div>
+            <a id="callUsButton" class="call-us" href="#"><i class="fa-solid fa-phone"></i>Call Us</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <div class="hero-main" id="heroMain">
+                <!-- main hero image -->
+            </div>
+            <div class="hero-side" id="heroThumbs">
+                <!-- thumbnails -->
+            </div>
+        </div>
+
+        <div class="details" id="shopDetails">
+            <!-- product details, address, likes, location -->
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+        function qs(key){
+            const params = new URLSearchParams(location.search);
+            return params.get(key);
+        }
+
+        function renderShop(shop){
+            document.getElementById('shopName').innerText = shop.name || 'Shop';
+            document.getElementById('shopSubtitle').innerText = shop.category || 'Local Retailer';
+            const callUsButton = document.getElementById('callUsButton');
+            if (shop.phone) {
+                callUsButton.href = `tel:${shop.phone}`;
+                callUsButton.style.display = 'inline-flex';
+            } else {
+                callUsButton.style.display = 'none';
+            }
+
+            const heroMain = document.getElementById('heroMain');
+            const heroThumbs = document.getElementById('heroThumbs');
+            const shopDetails = document.getElementById('shopDetails');
+
+            heroMain.innerHTML = '';
+            heroThumbs.innerHTML = '';
+
+            const heroImages = Array.isArray(shop.heroImages) && shop.heroImages.length ? shop.heroImages : [shop.img].filter(Boolean);
+            const fallbackImg = shop.img || '';
+            const heroSource = heroImages.length ? heroImages[0] : fallbackImg;
+
+            if (heroSource) {
+                const mainImg = document.createElement('img');
+                mainImg.src = heroSource;
+                mainImg.alt = `${shop.name} hero image`;
+                mainImg.onerror = function(){ this.style.display='none'; };
+                heroMain.appendChild(mainImg);
+
+                const thumbnailSources = heroImages.length ? heroImages : [fallbackImg];
+                thumbnailSources.forEach((src, index) => {
+                    const t = document.createElement('div'); t.className='thumb';
+                    const ti = document.createElement('img'); ti.src = src; ti.alt = `${shop.name} hero ${index + 1}`;
+                    ti.onerror = function(){ this.style.display='none'; };
+                    ti.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        if (mainImg.src !== src) {
+                            mainImg.src = src;
+                        }
+                    });
+                    t.appendChild(ti);
+                    heroThumbs.appendChild(t);
+                });
+            } else {
+                heroMain.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted)">No Image Available</div>';
+            }
+
+            const likesCount = parseInt(localStorage.getItem(`count_${shop.id}`) || shop.defaultLikes || 0);
+            const voted = localStorage.getItem(`voted_${shop.id}`);
+
+            const mapQuery = encodeURIComponent(`${shop.name}, ${shop.address}`);
+            const mapUrl = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+
+            shopDetails.innerHTML = `
+                <div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1rem;">
+                    <div style="font-size:1rem;color:var(--accent-secondary);font-weight:700;letter-spacing:0.4px;text-transform:uppercase;">${shop.area || ''}</div>
+                    <div style="font-size:1rem;color:var(--text-muted);">${shop.offer || ''}</div>
+                </div>
+                <div class="meta">
+                    <div><strong>Category:</strong> ${shop.category || '—'}</div>
+                    <div><strong>Sale:</strong> ${shop.sale || '—'}</div>
+                </div>
+                <div style="color:var(--text-muted);margin:0.8rem 0;">${shop.address || ''}</div>
+                <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.8rem;margin-bottom:1rem;">
+                    <a class="map-link" href="${mapUrl}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-dot"></i> View on Map</a>
+                    <a class="map-link" href="tel:${shop.phone || ''}"><i class="fa-solid fa-phone"></i> Call Shop</a>
+                    <button id="likeBtn" class="like-btn ${voted? 'already-voted':''}"><i class="fa-solid fa-heart"></i> <span id="likeTally">${likesCount}</span></button>
+                </div>
+                <hr style="margin:1.5rem 0;border-color:var(--border-glow)">
+                <div>
+                    <h4 style="margin-bottom:0.8rem;font-size:1.2rem;letter-spacing:-0.2px">Products & Details</h4>
+                    <p style="color:var(--text-muted);margin-bottom:1rem;line-height:1.6;">Explore a curated selection of product images and descriptions from this shop. Tap thumbnails to preview different hero visuals and scroll below to see individual product cards.</p>
+                </div>
+                <div class="product-gallery" id="shopProducts"></div>
+            `;
+
+            document.getElementById('likeBtn').addEventListener('click', function(e){
+                e.stopPropagation();
+                if(localStorage.getItem(`voted_${shop.id}`)) return;
+                localStorage.setItem(`voted_${shop.id}`,'true');
+                const current = parseInt(localStorage.getItem(`count_${shop.id}`) || shop.defaultLikes || 0) + 1;
+                localStorage.setItem(`count_${shop.id}`, current);
+                document.getElementById('likeTally').innerText = current;
+                this.classList.add('already-voted');
+            });
+
+            const productContainer = document.getElementById('shopProducts');
+            productContainer.innerHTML = '';
+            const productGallery = Array.isArray(shop.productGallery) ? shop.productGallery : [];
+
+            if (productGallery.length) {
+                productGallery.forEach(product => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <img src="${product.src}" alt="${product.name}" onerror="this.style.display='none';">
+                        <div class="product-info">
+                            <div class="product-name">${product.name}</div>
+                            <div class="product-type">${product.description || 'Verified local product'}</div>
+                        </div>
+                    `;
+                    productContainer.appendChild(card);
+                });
+            } else {
+                productContainer.innerHTML = '<div style="color:var(--text-muted);">No product gallery available for this shop.</div>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+            const id = qs('id');
+            if(typeof shopDatabase === 'undefined'){
+                console.error('data.js not loaded');
+                return;
+            }
+            const shop = shopDatabase.find(s => s.id === id);
+            if(!shop){
+                document.getElementById('shopDetails').innerHTML = '<div style="padding:2rem;color:var(--text-muted)">Shop not found.</div>';
+                return;
+            }
+            renderShop(shop);
+        });
+    </script>
+</body>
+</html>
