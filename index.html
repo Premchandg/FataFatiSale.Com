@@ -433,13 +433,44 @@
         }
         .map-anchor-btn:hover { background: var(--text-main); color: #000; }
 
-        .pagination-container { text-align: center; margin-top: 3rem; }
-        .btn-load-more { 
-            background: transparent; color: var(--text-main); border: 1px solid var(--border-glow); 
-            padding: 1rem 2.5rem; font-size: 0.95rem; font-weight: 700; border-radius: 50px; cursor: pointer;
+        .pagination-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; margin-top: 3rem; }
+        .pagination-control,
+        .pagination-button,
+        .btn-load-more {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-glow);
+            padding: 0.85rem 1.3rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
             transition: var(--transition);
+            min-width: 48px;
         }
-        .btn-load-more:hover { background: rgba(255,255,255,0.05); border-color: var(--text-muted); }
+        .pagination-control:hover,
+        .pagination-button:hover,
+        .btn-load-more:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: var(--text-muted);
+        }
+        .pagination-button.active {
+            background: var(--gradient-primary);
+            color: #000;
+            border-color: transparent;
+        }
+        .pagination-control[disabled] {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+        .pagination-ellipsis {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 38px;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
         .no-results { text-align: center; grid-column: 1 / -1; padding: 5rem 2rem; color: var(--text-muted); }
 
         /* --- About Presentation Space --- */
@@ -672,9 +703,7 @@
                 
                 <div id="shopGrid" class="grid-layout"></div>
 
-                <div class="pagination-container" id="paginationBlock">
-                    <button class="btn-load-more" onclick="loadMoreTiles()">Browse More Outlets <i class="fa-solid fa-arrow-down" style="margin-left: 0.5rem; font-size: 0.8rem;"></i></button>
-                </div>
+                <div class="pagination-container" id="paginationBlock"></div>
             </div>
 
             <div class="side-ads-column" id="rightRackParent">
@@ -758,7 +787,8 @@
 
     <script>
         let currentFilteredShops = []; 
-        let displayedCount = 0;        
+        let currentPage = 1;
+        let totalPages = 1;
         const TILES_PER_PAGE = 6;      
 
         window.onload = function() {
@@ -856,13 +886,16 @@
 
         function resetAndRenderGrid() {
             document.getElementById("shopGrid").innerHTML = "";
-            displayedCount = 0;
-            loadMoreTiles();
+            currentPage = 1;
+            totalPages = Math.max(1, Math.ceil(currentFilteredShops.length / TILES_PER_PAGE));
+            renderCurrentPage();
         }
 
-        function loadMoreTiles() {
+        function renderCurrentPage() {
             const grid = document.getElementById("shopGrid");
             const totalAvailable = currentFilteredShops.length;
+
+            grid.innerHTML = "";
 
             if (totalAvailable === 0) {
                 grid.innerHTML = `
@@ -874,9 +907,10 @@
                 return;
             }
 
-            const nextLimit = Math.min(displayedCount + TILES_PER_PAGE, totalAvailable);
+            const startIndex = (currentPage - 1) * TILES_PER_PAGE;
+            const nextLimit = Math.min(startIndex + TILES_PER_PAGE, totalAvailable);
             
-            for (let i = displayedCount; i < nextLimit; i++) {
+            for (let i = startIndex; i < nextLimit; i++) {
                 const shop = currentFilteredShops[i];
                 let saleHtml = "";
                 
@@ -929,11 +963,66 @@
                         </div>
                     </div>
                 `;
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', function() {
+                    window.location.href = `shop.html?id=${shop.id}`;
+                });
                 grid.appendChild(card);
             }
 
-            displayedCount = nextLimit;
-            document.getElementById("paginationBlock").style.display = (displayedCount >= totalAvailable) ? "none" : "block";
+            renderPaginationBlock();
+        }
+
+        function renderPaginationBlock() {
+            const pagination = document.getElementById("paginationBlock");
+            const totalAvailable = currentFilteredShops.length;
+            totalPages = Math.max(1, Math.ceil(totalAvailable / TILES_PER_PAGE));
+
+            if (totalAvailable <= TILES_PER_PAGE) {
+                pagination.style.display = "none";
+                pagination.innerHTML = "";
+                return;
+            }
+
+            const pageButtons = [];
+            const addPageButton = (page) => {
+                if (page < 1 || page > totalPages) return;
+                pageButtons.push(`
+                    <button class="pagination-button ${page === currentPage ? 'active' : ''}" onclick="goToPage(${page})">${page}</button>
+                `);
+            };
+
+            if (totalPages <= 7) {
+                for (let p = 1; p <= totalPages; p++) addPageButton(p);
+            } else {
+                addPageButton(1);
+                if (currentPage > 4) pageButtons.push(`<span class="pagination-ellipsis">...</span>`);
+                const start = Math.max(2, currentPage - 1);
+                const end = Math.min(totalPages - 1, currentPage + 1);
+                for (let p = start; p <= end; p++) addPageButton(p);
+                if (currentPage < totalPages - 3) pageButtons.push(`<span class="pagination-ellipsis">...</span>`);
+                addPageButton(totalPages);
+            }
+
+            pagination.style.display = "flex";
+            pagination.innerHTML = `
+                <button class="pagination-control" onclick="goToPage(${Math.max(1, currentPage - 1)})" ${currentPage === 1 ? 'disabled' : ''}>Prev</button>
+                ${pageButtons.join('')}
+                <button class="pagination-control" onclick="goToPage(${Math.min(totalPages, currentPage + 1)})" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
+            `;
+        }
+
+        function goToPage(page) {
+            const totalAvailable = currentFilteredShops.length;
+            totalPages = Math.max(1, Math.ceil(totalAvailable / TILES_PER_PAGE));
+            if (page < 1 || page > totalPages || page === currentPage) return;
+            currentPage = page;
+            renderCurrentPage();
+            document.getElementById("mainShopArea").scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function loadMoreTiles() {
+            goToPage(currentPage + 1);
         }
 
         function registerLikeMetric(event, shopId) {
