@@ -105,6 +105,17 @@ const shopDatabase = [
         phone: "+91 98301 12345", 
         tier: 499, 
         img: "images/garments.jpg", 
+        heroImages: [
+            "images/Sreeram Garments/hero/OIP.jfif",
+            "images/Sreeram Garments/hero/OIP (1).jfif",
+            "images/Sreeram Garments/hero/OIP (2).jfif"
+        ],
+        productGallery: [
+            { src: "images/Sreeram Garments/products/fashion.jpg", name: "Festive Kurta Set", description: "Lightweight cotton with embroidery detail" },
+            { src: "images/Sreeram Garments/products/garments.jpg", name: "Premium Suit Combo", description: "Semi-formal wear for family functions" },
+            { src: "images/Sreeram Garments/products/juta.jpg", name: "Classic Leather Juta", description: "Comfortable footwear for daily use" },
+            { src: "images/Sreeram Garments/products/jutas.jpg", name: "Sporty Casual Juta", description: "Easy-wear design with modern finish" }
+        ],
         defaultLikes: 42,
         coords: { lat: 22.7622, lng: 88.3705 }
     },
