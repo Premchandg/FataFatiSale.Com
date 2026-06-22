@@ -8,7 +8,7 @@ const advertisementDatabase = [
         area: "Barrackpore", 
         img: "images/sample", 
         address: "Ghoshpara Road, Barrackpore", 
-        phone: "+91 90001 11101",
+        phone: "+91 90888 82442",
         coords: { lat: 22.7644, lng: 88.3749 }
     },
     { 
@@ -16,7 +16,7 @@ const advertisementDatabase = [
         area: "Naihati", 
         img: "images/ornaments.png", 
         address: "Station Road Corner, Naihati", 
-        phone: "+91 90001 11102",
+        phone: "+91 90888 82442",
         coords: { lat: 22.8914, lng: 88.4197 }
     },
     { 
@@ -24,7 +24,7 @@ const advertisementDatabase = [
         area: "Shyamnagar", 
         img: "images/fashion.png", 
         address: "Feeder Road, Shyamnagar", 
-        phone: "+91 90001 11103",
+        phone: "+91 90888 82442",
         coords: { lat: 22.8277, lng: 88.4022 }
     },
     { 
@@ -32,7 +32,7 @@ const advertisementDatabase = [
         area: "Ichhapur", 
         img: "images/bakery.jpg", 
         address: "Badamtala Junction, Ichhapur", 
-        phone: "+91 90001 11104",
+        phone: "+91 90888 82442",
         coords: { lat: 22.7915, lng: 88.3792 }
     },
     { 
@@ -40,7 +40,7 @@ const advertisementDatabase = [
         area: "Barrackpore", 
         img: "images/electronics.jpg", 
         address: "SN Banerjee Rd, Barrackpore", 
-        phone: "+91 90001 11105",
+        phone: "+91 90888 82442",
         coords: { lat: 22.7601, lng: 88.3698 }
     },
     { 
@@ -48,7 +48,7 @@ const advertisementDatabase = [
         area: "Kankinara", 
         img: "images/jutas.png", 
         address: "Bazaar Market, Kankinara", 
-        phone: "+91 90001 11106",
+        phone: "+91 90888 82442",
         coords: { lat: 22.8647, lng: 88.4144 }
     },
     { 
@@ -56,7 +56,7 @@ const advertisementDatabase = [
         area: "Naihati", 
         img: "images/garments.png", 
         address: "RBC Road Crossing, Naihati", 
-        phone: "+91 90001 11107",
+        phone: "+91 90888 82442",
         coords: { lat: 22.8930, lng: 88.4215 }
     },
     { 
@@ -64,7 +64,7 @@ const advertisementDatabase = [
         area: "Palta", 
         img: "images/spencers.jpg", 
         address: "Palta Station Road, Palta", 
-        phone: "+91 90001 11108",
+        phone: "+91 90888 82442",
         coords: { lat: 22.7852, lng: 88.3754 }
     },
     { 
@@ -72,7 +72,7 @@ const advertisementDatabase = [
         area: "Jagatdal", 
         img: "images/electronics.png", 
         address: "G.D. Road, Jagatdal", 
-        phone: "+91 90001 11109",
+        phone: "+91 90888 82442",
         coords: { lat: 22.8492, lng: 88.4099 }
     },
     { 
@@ -80,7 +80,7 @@ const advertisementDatabase = [
         area: "Barrackpore", 
         img: "images/juta.jpg", 
         address: "Chiriamore, Barrackpore", 
-        phone: "+91 90001 11110",
+        phone: "+91 90888 82442",
         coords: { lat: 22.7538, lng: 88.3772 }
     },
     { 
@@ -88,7 +88,7 @@ const advertisementDatabase = [
         area: "Barrackpore", 
         img: "images/ornaments.png", 
         address: "Feeder Road, Barrackpore", 
-        phone: "+91 90001 11111",
+        phone: "+91 90888 82442",
         coords: { lat: 22.7615, lng: 88.3711 }
     }
 ];
@@ -102,7 +102,7 @@ const shopDatabase = [
         offer: "Buy 2 Get 1 Free on Kurtas", 
         sale: "Festive Clearance", 
         address: "SN Banerjee Road, Barrackpore", 
-        phone: "+91 98301 12345", 
+        phone: "+91 90888 82442", 
         tier: 499, 
         img: "images/garments.jpg", 
         heroImages: [
@@ -127,7 +127,7 @@ const shopDatabase = [
         offer: "Free Installation on Smart ACs", 
         sale: "Summer Blast Deals", 
         address: "Ghoshpara Road, Barrackpore", 
-        phone: "+91 98301 54321", 
+        phone: "+91 90888 82442", 
         tier: 199, 
         img: "images/Electronics.png", 
         defaultLikes: 19,
@@ -141,7 +141,7 @@ const shopDatabase = [
         offer: "Flat 10% Off on Bulk Orders above ₹500", 
         sale: "None", 
         address: "Feeder Road, Shyamnagar", 
-        phone: "+91 94332 98765", 
+        phone: "+91 90888 82442", 
         tier: 199, 
         img: "images/sweets.png", 
         defaultLikes: 31,
@@ -155,7 +155,7 @@ const shopDatabase = [
         offer: "Get Free Sugar Pack with 5kg Mustard Oil", 
         sale: "Ration Discount", 
         address: "titagarh", 
-        phone: "+91 91633 11223", 
+        phone: "+91 90888 82442", 
         tier: 199, 
         img: "images/sweets.jpg", 
         defaultLikes: 14,
@@ -169,7 +169,7 @@ const shopDatabase = [
         offer: "Flat 20% off on premium leather variants", 
         sale: "None", 
         address: "Bazaar Area, Shyamnagar", 
-        phone: "+91 91633 44556", 
+        phone: "+91 90888 82442", 
         tier: 199, 
         img: "images/juta.png", 
         defaultLikes: 22,
@@ -183,7 +183,7 @@ const shopDatabase = [
         offer: "Zero down payment EMI schemes", 
         sale: "Flash Tech Bonanza", 
         address: "Station Road East, Shyamnagar", 
-        phone: "+91 91633 77889", 
+        phone: "+91 90888 82442", 
         tier: 499, 
         img: "images/Electronics.png", 
         defaultLikes: 89,
@@ -197,7 +197,7 @@ const shopDatabase = [
         offer: "Up to ₹2000 Cashback on exchanges", 
         sale: "Monsoon Tech Splash", 
         address: "RBC Road, Naihati", 
-        phone: "+91 90512 88990", 
+        phone: "+91 90888 82442", 
         tier: 199, 
         img: "images/Electronics.png", 
         defaultLikes: 17,
@@ -211,7 +211,7 @@ const shopDatabase = [
         offer: "Zero Making Charges on Gold Ornaments", 
         sale: "Wedding Special", 
         address: "Station Road Bazaar, Naihati", 
-        phone: "+91 33 2581 4455", 
+        phone: "+91 90888 82442", 
         tier: 499, 
         img: "images/ornaments.png", 
         defaultLikes: 112,
@@ -225,7 +225,7 @@ const shopDatabase = [
         offer: "Up to 15% discount on storage devices", 
         sale: "None", 
         address: "Siddheswari Tala, Shyamnagar", 
-        phone: "+91 90001 11112", 
+        phone: "+91 90888 82442", 
         tier: 199, 
         img: "images/Electronics.png", 
         defaultLikes: 25,
@@ -239,7 +239,7 @@ const shopDatabase = [
         offer: "Flat 10% off on custom corporate frames", 
         sale: "None", 
         address: "Station Road, Barrackpore", 
-        phone: "+91 98301 99999", 
+        phone: "+91 90888 82442", 
         tier: 199, 
         img: "", 
         defaultLikes: 8,
@@ -253,7 +253,7 @@ const shopDatabase = [
         offer: "Free basic toolkit bundle on purchases", 
         sale: "None", 
         address: "Chiriamore Crossing, Barrackpore", 
-        phone: "+91 98301 88888", 
+        phone: "+91 90888 82442", 
         tier: 199, 
         img: "", 
         defaultLikes: 12,
@@ -267,7 +267,7 @@ const shopDatabase = [
         offer: "Complimentary mocktail with large platters", 
         sale: "None", 
         address: "S.N. Banerjee Road, Barrackpore", 
-        phone: "+91 98301 77777", 
+        phone: "+91 90888 82442", 
         tier: 499, 
         img: "", 
         defaultLikes: 56,
