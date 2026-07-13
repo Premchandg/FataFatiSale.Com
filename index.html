@@ -109,6 +109,7 @@
 
         .logo i {
             background: var(--gradient-primary);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: pulseGlow 2s infinite alternate;
@@ -181,7 +182,7 @@
             background: radial-gradient(ellipse at top, rgba(30, 27, 75, 0.4), transparent 60%);
         }
         .hero-content h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem; letter-spacing: -1px; }
-        .hero-content h1 span { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-content h1 span { background: var(--gradient-primary); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-content p { color: var(--text-muted); font-size: 1.15rem; max-width: 650px; margin: 0 auto 3rem auto; }
 
         .search-container-box {
@@ -203,14 +204,20 @@
             display: flex; 
             align-items: center; 
             flex-grow: 1; 
-            padding-left: 1rem; 
+            padding: 0 1rem; 
             border-right: 1px solid var(--border-glow); 
             position: relative; 
+            background: rgba(255,255,255,0.05);
+            border-radius: 18px;
         }
-        .search-field-group:nth-child(2) { border-right: none; width: 280px; }
+        .search-field-group:nth-child(2) { border-right: none; width: 360px; min-width: 240px; }
         .search-container-box i { color: var(--accent-primary); font-size: 1.05rem; }
         .search-container-box input, .search-container-box select { background: transparent; border: none; outline: none; color: var(--text-main); padding: 1rem 0.8rem; font-size: 0.95rem; width: 100%; -webkit-appearance: none; appearance: none; font-weight: 500; }
+        .search-container-box select { color: var(--text-main); background: transparent; }
         .search-container-box input::placeholder { color: var(--text-muted); }
+        .search-container-box select { padding-right: 2rem; }
+        .search-container-box option { color: #0f172a; background: #f8fafc; }
+        .search-field-group::after { right: 1rem; }
 
         .search-field-group::after { content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; right: 1.2rem; color: var(--text-muted); font-size: 0.75rem; pointer-events: none; }
         .search-field-group:nth-child(1)::after { display: none; }
@@ -253,7 +260,7 @@
         /* --- Flexible Dynamic Grid Framework Architecture --- */
         section { padding: 5rem 2rem; max-width: 1440px; margin: 0 auto; width: 100%; }
         .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 3rem; font-weight: 800; letter-spacing: -0.5px; }
-        .section-title span { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-title span { background: var(--gradient-primary); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
         .three-column-portal-wrapper {
             display: grid;
@@ -285,6 +292,59 @@
             opacity: 0.9;
         }
         .ads-sidebar-headline i { color: var(--accent-secondary); }
+
+        .ad-rack-wrapper {
+            position: relative;
+        }
+        .ad-rack-controls {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.5rem;
+            z-index: 10;
+            pointer-events: auto;
+        }
+        .ad-rack-controls-top {
+            top: 0.55rem;
+        }
+        .ad-rack-controls-bottom {
+            bottom: 0.55rem;
+        }
+        .ad-rack-button {
+            width: 42px;
+            height: 42px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            color: var(--text-main);
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 11;
+            box-shadow: 0 0 18px rgba(0,0,0,0.25);
+        }
+        .ad-rack-button:hover {
+            background: rgba(255,255,255,0.14);
+            transform: translateY(-1px);
+        }
+        .ad-rack-scroll {
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: min(1040px, calc(100vh - 260px));
+            min-height: 980px;
+            padding-right: 0.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,170,0,0.55) rgba(255,255,255,0.08);
+        }
+        .ad-rack-scroll::-webkit-scrollbar { width: 8px; }
+        .ad-rack-scroll::-webkit-scrollbar-thumb { background: rgba(255,170,0,0.45); border-radius: 999px; }
+        .ad-rack-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
 
         /* --- Modern Ad Card Design & Smooth Flashing Module --- */
         .ad-card { 
@@ -337,6 +397,7 @@
         .empty-ad-placeholder-banner i {
             font-size: 2.2rem;
             background: var(--gradient-primary);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -729,9 +790,15 @@
 
         <div class="three-column-portal-wrapper">
             
-            <div class="side-ads-column" id="leftRackParent">
+            <div class="side-ads-column ad-rack-wrapper" id="leftRackParent">
                 <div class="ads-sidebar-headline"><i class="fa-solid fa-rectangle-ad"></i> Featured Showcases</div>
-                <div id="leftAdsRack" class="side-ads-column"></div>
+                <div class="ad-rack-controls ad-rack-controls-top">
+                    <button class="ad-rack-button" type="button" onclick="scrollAdRack('leftAdsRack', 'up')"><i class="fa-solid fa-chevron-up"></i></button>
+                </div>
+                <div id="leftAdsRack" class="side-ads-column ad-rack-scroll"></div>
+                <div class="ad-rack-controls ad-rack-controls-bottom">
+                    <button class="ad-rack-button" type="button" onclick="scrollAdRack('leftAdsRack', 'down')"><i class="fa-solid fa-chevron-down"></i></button>
+                </div>
             </div>
 
             <div class="center-portal-content" id="mainShopArea">
@@ -744,9 +811,15 @@
                 <div class="pagination-container" id="paginationBlock"></div>
             </div>
 
-            <div class="side-ads-column" id="rightRackParent">
+            <div class="side-ads-column ad-rack-wrapper" id="rightRackParent">
                 <div class="ads-sidebar-headline"><i class="fa-solid fa-rectangle-ad"></i> Featured Showcases</div>
-                <div id="rightAdsRack" class="side-ads-column"></div>
+                <div class="ad-rack-controls ad-rack-controls-top">
+                    <button class="ad-rack-button" type="button" onclick="scrollAdRack('rightAdsRack', 'up')"><i class="fa-solid fa-chevron-up"></i></button>
+                </div>
+                <div id="rightAdsRack" class="side-ads-column ad-rack-scroll"></div>
+                <div class="ad-rack-controls ad-rack-controls-bottom">
+                    <button class="ad-rack-button" type="button" onclick="scrollAdRack('rightAdsRack', 'down')"><i class="fa-solid fa-chevron-down"></i></button>
+                </div>
             </div>
 
         </div>
@@ -907,6 +980,67 @@
                     rightRack.appendChild(card);
                 }
             });
+
+            initializeAdRackAutoScroll('leftAdsRack');
+            initializeAdRackAutoScroll('rightAdsRack');
+        }
+
+        function initializeAdRackAutoScroll(rackId) {
+            const rack = document.getElementById(rackId);
+            if (!rack) return;
+
+            const existing = window[`__adRackScroll_${rackId}`];
+            if (existing && existing.stopScroll) {
+                existing.stopScroll();
+            }
+
+            let scrollPaused = false;
+            let intervalId = null;
+            const scrollAmount = 1;
+            const intervalMs = 30;
+
+            const startScroll = () => {
+                if (intervalId !== null) return;
+                intervalId = setInterval(() => {
+                    if (scrollPaused || rack.scrollHeight <= rack.clientHeight) return;
+                    rack.scrollTop += scrollAmount;
+                    if (rack.scrollTop >= rack.scrollHeight - rack.clientHeight) {
+                        rack.scrollTop = 0;
+                    }
+                }, intervalMs);
+            };
+
+            const stopScroll = () => {
+                if (intervalId !== null) {
+                    clearInterval(intervalId);
+                    intervalId = null;
+                }
+            };
+
+            rack.addEventListener('mouseenter', () => { scrollPaused = true; });
+            rack.addEventListener('mouseleave', () => { scrollPaused = false; });
+            rack.addEventListener('focusin', () => { scrollPaused = true; });
+            rack.addEventListener('focusout', () => { scrollPaused = false; });
+            startScroll();
+
+            window[`__adRackScroll_${rackId}`] = { rack, stopScroll, startScroll };
+        }
+
+        function scrollAdRack(rackId, direction) {
+            const rack = document.getElementById(rackId);
+            if (!rack) return;
+            const offset = direction === 'up' ? -220 : 220;
+            if (typeof rack.scrollBy === 'function') {
+                rack.scrollBy({ top: offset, behavior: 'smooth' });
+            } else {
+                rack.scrollTop += offset;
+            }
+
+            const rackState = window[`__adRackScroll_${rackId}`];
+            if (rackState && rackState.stopScroll && rackState.startScroll) {
+                rackState.stopScroll();
+                rackState.startScroll();
+            }
         }
 
         function renderPremiumPartners() {
