@@ -24,8 +24,13 @@
         .hero{display:flex;gap:1rem;background:rgba(255,255,255,0.02);border-radius:18px;padding:1rem;border:1px solid var(--border-glow);overflow:hidden;align-items:flex-start}
         .hero-main{flex:1;min-height:220px;border-radius:16px;overflow:hidden;position:relative}
         .hero-main img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-        .hero-side{width:170px;display:flex;flex-direction:column;gap:0.75rem}
-        .thumb{height:84px;border-radius:14px;overflow:hidden;border:1px solid var(--border-glow);cursor:pointer;transition:transform 0.3s ease}
+        .hero-side{width:220px;display:flex;flex-direction:column;gap:0.75rem;overflow:hidden}
+        #heroThumbs{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:84px;gap:0.65rem;}
+        .hero-thumb-nav{display:flex;justify-content:space-between;gap:0.45rem;margin-top:0.45rem}
+        .hero-thumb-nav button{background:rgba(255,255,255,0.06);border:1px solid var(--border-glow);color:var(--text-main);padding:0.55rem 0.75rem;border-radius:12px;cursor:pointer;transition:var(--transition);font-size:0.82rem}
+        .hero-thumb-nav button:disabled{opacity:0.5;cursor:not-allowed}
+        .thumb{border-radius:14px;overflow:hidden;border:1px solid var(--border-glow);cursor:pointer;transition:transform 0.3s ease}
+        .thumb img{width:100%;height:100%;object-fit:cover}
         .thumb:hover{transform:translateY(-2px)}
         .thumb img{width:100%;height:100%;object-fit:cover}
         .details{margin-top:1.2rem;background:rgba(255,255,255,0.02);padding:1.2rem;border-radius:18px;border:1px solid var(--border-glow)}
@@ -41,7 +46,7 @@
         .product-info{padding:1rem;display:flex;flex-direction:column;gap:0.4rem}
         .product-name{font-weight:800;font-size:1rem;color:var(--text-main)}
         .product-type{font-size:0.88rem;color:var(--text-muted)}
-        @media(max-width:960px){.hero{flex-direction:column}.hero-side{width:100%;flex-direction:row;overflow:auto}.thumb{height:64px;min-width:96px}.product-gallery{grid-template-columns:1fr}}
+        @media(max-width:960px){.hero{flex-direction:column}.hero-side{width:100%;flex-direction:row;overflow:hidden}.thumb{height:64px;min-width:96px}.product-gallery{grid-template-columns:1fr}}
         @media(max-width:760px){.top-bar{flex-direction:column;align-items:flex-start}.hero-side{flex-wrap:wrap}.thumb{height:58px;min-width:90px}.details{padding:1rem}}
     </style>
 </head>
@@ -63,8 +68,9 @@
             <div class="hero-main" id="heroMain">
                 <!-- main hero image -->
             </div>
-            <div class="hero-side" id="heroThumbs">
-                <!-- thumbnails -->
+            <div class="hero-side">
+                <div id="heroThumbs"><!-- thumbnails --></div>
+                <div class="hero-thumb-nav" id="heroThumbNav"></div>
             </div>
         </div>
 
@@ -93,26 +99,27 @@
 
             const heroMain = document.getElementById('heroMain');
             const heroThumbs = document.getElementById('heroThumbs');
+            const heroThumbNav = document.getElementById('heroThumbNav');
             const shopDetails = document.getElementById('shopDetails');
 
             heroMain.innerHTML = '';
             heroThumbs.innerHTML = '';
+            heroThumbNav.innerHTML = '';
 
             const heroImages = Array.isArray(shop.heroImages) && shop.heroImages.length ? shop.heroImages : [shop.img].filter(Boolean);
             const fallbackImg = shop.img || '';
             const heroSource = heroImages.length ? heroImages[0] : fallbackImg;
+            const pageSize = 6;
+            let currentPage = 0;
+            const totalPages = Math.max(1, Math.ceil(heroImages.length / pageSize));
 
-            if (heroSource) {
-                const mainImg = document.createElement('img');
-                mainImg.src = heroSource;
-                mainImg.alt = `${shop.name} hero image`;
-                mainImg.onerror = function(){ this.style.display='none'; };
-                heroMain.appendChild(mainImg);
-
-                const thumbnailSources = heroImages.length ? heroImages : [fallbackImg];
-                thumbnailSources.forEach((src, index) => {
+            const renderThumbs = () => {
+                heroThumbs.innerHTML = '';
+                const start = currentPage * pageSize;
+                const pageImages = heroImages.slice(start, start + pageSize);
+                pageImages.forEach((src, index) => {
                     const t = document.createElement('div'); t.className='thumb';
-                    const ti = document.createElement('img'); ti.src = src; ti.alt = `${shop.name} hero ${index + 1}`;
+                    const ti = document.createElement('img'); ti.src = src; ti.alt = `${shop.name} hero ${start + index + 1}`;
                     ti.onerror = function(){ this.style.display='none'; };
                     ti.addEventListener('click', function(e) {
                         e.stopPropagation();
@@ -123,6 +130,36 @@
                     t.appendChild(ti);
                     heroThumbs.appendChild(t);
                 });
+
+                heroThumbNav.innerHTML = '';
+                if (totalPages > 1) {
+                    const prevBtn = document.createElement('button');
+                    prevBtn.type = 'button';
+                    prevBtn.innerText = 'Prev';
+                    prevBtn.disabled = currentPage === 0;
+                    prevBtn.addEventListener('click', () => { currentPage = Math.max(0, currentPage - 1); renderThumbs(); });
+
+                    const nextBtn = document.createElement('button');
+                    nextBtn.type = 'button';
+                    nextBtn.innerText = 'Next';
+                    nextBtn.disabled = currentPage >= totalPages - 1;
+                    nextBtn.addEventListener('click', () => { currentPage = Math.min(totalPages - 1, currentPage + 1); renderThumbs(); });
+
+                    heroThumbNav.appendChild(prevBtn);
+                    heroThumbNav.appendChild(nextBtn);
+                }
+            };
+
+            if (heroSource) {
+                const mainImg = document.createElement('img');
+                mainImg.src = heroSource;
+                mainImg.alt = `${shop.name} hero image`;
+                mainImg.onerror = function(){ this.style.display='none'; };
+                heroMain.appendChild(mainImg);
+
+                if (heroImages.length) {
+                    renderThumbs();
+                }
             } else {
                 heroMain.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted)">No Image Available</div>';
             }
