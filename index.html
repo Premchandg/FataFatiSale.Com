@@ -667,11 +667,20 @@
 
         /* MOBILE OVERHAUL */
         @media (max-width: 768px) {
-            .nav-container { height: auto; min-height: 75px; } /* Allow flexibility on mobile view wrap */
+            .nav-container {
+                height: auto;
+                min-height: 75px;
+                padding: 0.8rem 1rem;
+            }
+            .logo-img {
+                height: 70px;
+                top: 0;
+            }
             .top-slogan-bar {
                 flex-direction: column;
                 gap: 0.8rem;
                 text-align: center;
+                margin-top: 0.75rem;
             }
             .slogan-left, .slogan-right {
                 text-align: center;
@@ -705,7 +714,7 @@
             .about-grid, .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
             section { padding: 4rem 1.5rem; }
             .call-now-box { font-size: 1.25rem; padding: 1rem 1.5rem; }
-            #home { padding-bottom: 3.5rem; }
+            #home { padding-top: 7.5rem; padding-bottom: 3.5rem; }
             #shops { padding-top: 2.5rem; }
         }
     </style>
