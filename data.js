@@ -87,6 +87,56 @@ const advertisementDatabase = [
 
 const shopDatabase = [
     { 
+        id: "sp_001", 
+        name: "Om Kamla Dresses", 
+        area: "Jagatdal", 
+        category: "Fashion & Garments", 
+        offer: "5% off on all new arrivals", 
+        sale: "Fata Fati Sale", 
+        address: "80 east, Ghosh Para Rd, near by Shiv Mandir, Jagatdal, Kolkata, Bhatpara, West Bengal 743125", 
+        phone: "+91 91237 63015", 
+        tier: 499, 
+        img: "images/Ohm Kamla Dresses/unnamed.jpg", 
+        heroImages: [
+            "images/Ohm Kamla Dresses/unnamed.jpg"
+        ],
+        productGallery: [
+            { src: "images/Ohm Kamla Dresses/1.webp", name: "Modern Ladies Wear", description: "Lightweight cotton with embroidery detail" },
+            { src: "images/Ohm Kamla Dresses/2.webp", name: "Premium Kids Wear", description: "Kids clothing for all occasions" },
+            { src: "images/Ohm Kamla Dresses/3.webp", name: "Classic Women Fashion", description: "Comfortable and stylish options for women" },
+            { src: "images/Ohm Kamla Dresses/4.webp", name: "Sarees", description: "Easy-wear design with modern finish" }
+        ],
+        defaultLikes: 56,
+        coords: { lat: 22.8539, lng: 88.3798 }
+    },
+
+    { 
+        id: "sp_002", 
+        name: "Raju Garments", 
+        area: "Jagatdal", 
+        category: "Fashion & Garments", 
+        offer: "5% off on all new arrivals", 
+        sale: "Fata Fati Sale", 
+        address: "80 east, Ghosh Para Rd, Opposite to Meghna Jute Mill gate, Jagatdal, Kolkata, Bhatpara, West Bengal 743125", 
+        phone: "+91 90885 70542", 
+        tier: 499, 
+        img: "images/sample", 
+        heroImages: [
+            "images/sample"
+        ],
+        productGallery: [
+            { src: "images/Raju Garments/1.webp", name: "Modern Ladies Wear", description: "Lightweight cotton with embroidery detail" },
+            { src: "images/Raju Garments/2.webp", name: "Premium Kids Wear", description: "Kids clothing for all occasions" },
+            { src: "images/Raju Garments/3.webp", name: "Classic Women Fashion", description: "Comfortable and stylish options for women" },
+            { src: "images/Raju Garments/4.webp", name: "Modern Ladies Nighty", description: "Easy-wear design with modern finish" },
+            { src: "images/Raju Garments/6.webp", name: "Trousers", description: "Comfortable Wear for all weather" },
+            { src: "images/Raju Garments/7.webp", name: "Men's Wear", description: "Comfortable and stylish options for men" },
+            { src: "images/Raju Garments/8.webp", name: "Women's Wear", description: "Easy-wear design with modern finish" }
+        ],
+        defaultLikes: 56,
+        coords: { lat: 22.853592, lng: 88.379808 }
+    },
+    { 
         id: "sp_1", 
         name: "Sreeram Garments", 
         area: "Barrackpore", 
@@ -250,56 +300,5 @@ const shopDatabase = [
         img: "", 
         defaultLikes: 12,
         coords: { lat: 22.7541, lng: 88.3769 }
-    },
-    
-    { 
-        id: "sp_001", 
-        name: "Om Kamla Dresses", 
-        area: "Jagatdal", 
-        category: "Fashion & Garments", 
-        offer: "5% off on all new arrivals", 
-        sale: "Fata Fati Sale", 
-        address: "80 east, Ghosh Para Rd, near by Shiv Mandir, Jagatdal, Kolkata, Bhatpara, West Bengal 743125", 
-        phone: "+91 91237 63015", 
-        tier: 499, 
-        img: "images/Ohm Kamla Dresses/unnamed.jpg", 
-        heroImages: [
-            "images/Ohm Kamla Dresses/unnamed.jpg"
-        ],
-        productGallery: [
-            { src: "images/Ohm Kamla Dresses/1.webp", name: "Modern Ladies Wear", description: "Lightweight cotton with embroidery detail" },
-            { src: "images/Ohm Kamla Dresses/2.webp", name: "Premium Kids Wear", description: "Kids clothing for all occasions" },
-            { src: "images/Ohm Kamla Dresses/3.webp", name: "Classic Women Fashion", description: "Comfortable and stylish options for women" },
-            { src: "images/Ohm Kamla Dresses/4.webp", name: "Sarees", description: "Easy-wear design with modern finish" }
-        ],
-        defaultLikes: 56,
-        coords: { lat: 22.8539, lng: 88.3798 }
-    },
-
-    { 
-        id: "sp_002", 
-        name: "Raju Garments", 
-        area: "Jagatdal", 
-        category: "Fashion & Garments", 
-        offer: "5% off on all new arrivals", 
-        sale: "Fata Fati Sale", 
-        address: "80 east, Ghosh Para Rd, Opposite to Meghna Jute Mill gate, Jagatdal, Kolkata, Bhatpara, West Bengal 743125", 
-        phone: "+91 90885 70542", 
-        tier: 499, 
-        img: "images/sample", 
-        heroImages: [
-            "images/sample"
-        ],
-        productGallery: [
-            { src: "images/Raju Garments/1.webp", name: "Modern Ladies Wear", description: "Lightweight cotton with embroidery detail" },
-            { src: "images/Raju Garments/2.webp", name: "Premium Kids Wear", description: "Kids clothing for all occasions" },
-            { src: "images/Raju Garments/3.webp", name: "Classic Women Fashion", description: "Comfortable and stylish options for women" },
-            { src: "images/Raju Garments/4.webp", name: "Modern Ladies Nighty", description: "Easy-wear design with modern finish" },
-            { src: "images/Raju Garments/6.webp", name: "Trousers", description: "Comfortable Wear for all weather" },
-            { src: "images/Raju Garments/7.webp", name: "Men's Wear", description: "Comfortable and stylish options for men" },
-            { src: "images/Raju Garments/8.webp", name: "Women's Wear", description: "Easy-wear design with modern finish" }
-        ],
-        defaultLikes: 56,
-        coords: { lat: 22.853592, lng: 88.379808 }
     }
 ];
